@@ -1,0 +1,175 @@
+        [ boardBuilding.loadBoard(
+            "CI1",
+            [ "0-", "0-", "1-", "0-", "0-"]
+        )
+        , boardBuilding.loadBoard(
+            "CI2",
+            [ "0-", "1-", "--", "0-", "--"]
+        )
+        , boardBuilding.loadBoard(
+            "CI3",
+            [ "--", "--", "--", "--", "--", "1-", "--", "--", "--"]
+        )
+        , boardBuilding.loadBoard(
+            "FSTD_LR",
+            // filling some tiles doesn't get you anything
+            //  (for an L-R strategy)
+            ["0-", "1-", "1-", "0-", "--", "--", "0-"] 
+          ) 
+        , boardBuilding.loadBoard(
+            "FSTD_RL",
+            // filling some tiles doesn't get you anything
+            //  (for an R-L strategy)
+            ["--", "0-", "--", "--", "0-", "1-", "1-", "0-", "--"] 
+          ) 
+        // demo of capturing by surrounding
+        , boardBuilding.loadBoard(
+            "SURC",
+            // surrounding capture
+            ["0-", "1-", "-W", "1W", "-W", "1-", "1-", "0-"]
+          )
+        , boardBuilding.loadBoard(
+            "KBTCQ",
+            // TODO: Too easy to miss the zero-behinds here by capturing too fast
+            // discover that you need to kill a block to click in your quota spot
+            ["0-", "--", "0W", "-W", "0W", "1W", "0W", "-B", "0-"]
+          )
+        , boardBuilding.loadBoard(
+            "SRCRC",
+            // surrounding capture *requiring correct play*
+            // left-to-right play is punished, only playing required spaces is punished
+            ["0-", "1-", "-W", "1W", "-W", "1-", "0-", "--"]
+          )
+        , boardBuilding.loadBoard(
+            "WDTC",
+            // white does the capture this time (TODO: More puzzles like this)
+            // punishes LTR play
+            ["0-", "1-", "1B", "--", "-W", "0-"]
+          )
+        , boardBuilding.loadBoard(
+            "EC_1",
+            // edge capture, easily
+            ["1W", "--", "0-", "1-"]
+          )
+        //, boardBuilding.loadBoard(
+        //    "SEC",
+        //    // silly edge capture: introduces "completely full board" tricks
+        //    ["1W", "1W", "1W", "--", "1W", "1W", "1W"]
+        //)
+        // TODO: Maybe more edge-capture puzzles?
+        , boardBuilding.loadBoard(
+            "EC_N",
+            // TODO: Introduce "capturing opponent overrides capturing you"
+            // edge capture, this is a hard one
+            ["2-", "2-", "0B", "0-", "--", "1B"]
+          )
+        , boardBuilding.loadBoard(
+            "SU_1",
+            // you have to suicide but it's easy
+            ["0-", "-W", "1B", "--", "1B", "-W", "0-"] 
+          )
+        , boardBuilding.loadBoard(
+            "SU_2",
+            // another puzzle where you can commit suicide (TODO: later; a puzzle where you can't)
+            ["0-", "-W", "1B", "--", "-W", "0-"]
+          )
+        , boardBuilding.loadBoard(
+            // TODO: Better introduction for 2-quota?
+            "SU_3",
+            // you have to suicide but it's hard
+            // you can technically do it more than one way but all easyish ways I found involve multiple suicides
+            ["--", "2-", "1B", "--", "--", "1B", "-W", "0-"] 
+          )
+        , boardBuilding.loadBoard(
+            "SU_4",
+            // a puzzle where you can't commit suicide and must instead play into it as white, 
+            // then set up to kill the whites 
+            // punishes LTR play, you can win without being super good at it though
+            [ "1-", "-W", "1-", "-W", "1-", "0-"]
+          )
+        , boardBuilding.loadBoard(
+            "SU_N",
+            // edge-capture white, then capture the black group
+            // then commit white suicide on left
+            // capturing white early makes this unwinnable
+            // TODO before this:
+            // - introduce edge capture
+            // - introduce suicide
+            ["1-", "1W", "1B", "1-", "1W"]
+          )
+        , boardBuilding.loadBoard(
+            "HELL",
+            // this one is just super hard
+            // involves suicide and intentionally making non-capturing moves
+            // punishes LTR play
+            // does not involve edge capture or indefinite pumping
+            // TODO before this: 
+            // - introduce suicide
+            // - introduce some other long puzzles, maybe?
+            
+            // 1) kill right white piece
+            // 2) play white left of center, forming killable white gruop
+            // 3) kill white group
+            // 4) play white into furthest left space
+            // 5) fill black gap on right, refusing to kill white *yet*
+            // 6) play white suicide
+            // 7) fill last gap with black
+            ["0-", "1-", "2W", "2-", "0B", "1W", "--", "0-"]
+          )
+        , boardBuilding.loadBoard(
+            "PMP_1",
+            // pumping introduction
+            ["2-", "2W"]
+          )
+        , boardBuilding.loadBoard(
+            "PMP_2",
+            // pumping introduction
+            ["0-", "0W", "0B", "0-"],
+            ["0W", "4-", "4W", "0B"],
+            ["0-", "0W", "0B", "0-"]
+          )
+        , boardBuilding.loadBoard(
+            "PMP_3",
+            // pumping introduction
+            ["0-", "0-"],
+            ["0W", "0B"],
+            ["6-", "6W"],
+            ["0W", "0B"],
+            ["0-", "0-"]
+          )
+        // some 2D capture scenarios: 
+        // TODO: I need more
+        , boardBuilding.loadBoard(
+            "CAP_2",
+            // an edge capture
+            ["0-", "1-", "0-"],
+            ["0-", "1-", "0-"],
+            ["-B", "1W", "-B"]
+          )
+        , boardBuilding.loadBoard(
+            "CAP_3",
+            // at least one multitile corner suicide
+            ["0-", "1-", "1W", "1B"],
+            ["-B", "--", "-W", "--"],
+            ["0-", "-B", "-B", "-B"]
+          )
+        
+        , boardBuilding.loadBoard(
+            "CAP_4",
+            ["2B"],
+            ["1B"],
+            ["--"],
+            ["--"],
+            ["1B"]
+        )
+          
+        , boardBuilding.loadBoard(
+            "CAP_5",
+            // kill everything in two moves
+            ["1B", "-B", "-B", "-B", "1B"],
+            ["-B", "-B", "--", "-B", "-B"],
+            ["-B", "-B", "--", "-B", "-B"],
+            ["-B", "-B", "-B", "-B", "-B"],
+            ["1B", "-B", "-B", "-B", "1B"]
+          )
+        ]
